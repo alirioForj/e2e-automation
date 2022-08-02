@@ -1,6 +1,6 @@
 const { getSynpressPath } = require("@synthetixio/synpress/helpers");
 
-describe('Staking e2e Test', () => {
+describe('Unstaking e2e Test', () => {
 
     it('Connects with Metamask', () => {
         cy.clearLocalStorage();
@@ -9,9 +9,10 @@ describe('Staking e2e Test', () => {
         cy.contains('Login with Metamask').click();
         cy.acceptMetamaskAccess().should("be.true");
     })
-    it('Stake some Bondly tokens', () => {
+    it('Unstake some Bondly tokens', () => {
         cy.switchToCypressWindow();
         cy.wait(10000);
+        cy.contains('Unstake').click();
         cy.get('#page-content > div > div > div.sc-lbeWMy.rtpjz > div.sc-bbMrut.wEnNs > div.sc-bsVkav.jivxVW > div > div.sc-ewkqZ.gdOKCp > div.stake-input > input[type=text]').type('100');
         cy.get('#page-content > div > div > div.sc-lbeWMy.rtpjz > div.sc-bbMrut.wEnNs > div.sc-bsVkav.jivxVW > div > div.sc-ewkqZ.gdOKCp > div.sc-gsnTZi.dRsHiZ > span').click();
         cy.confirmMetamaskTransaction();
