@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "@synthetixio/synpress": "^1.2.0",
+    "cypress-real-events": "^1.7.1",
     "env-cmd": "^10.1.0"
   },
   "scripts": {
