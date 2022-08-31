@@ -13,8 +13,9 @@ describe('Staking e2e Test', () => {
     it('Stake some Bondly tokens', () => {
         cy.switchToCypressWindow();
         cy.wait(10000);
-        cy.get('#page-content > div > div > div.sc-lbeWMy.rtpjz > div.sc-bbMrut.wEnNs > div.sc-bsVkav.jivxVW > div > div.sc-ewkqZ.gdOKCp > div.stake-input > input[type=text]').type('100');
-        cy.get('#page-content > div > div > div.sc-lbeWMy.rtpjz > div.sc-bbMrut.wEnNs > div.sc-bsVkav.jivxVW > div > div.sc-ewkqZ.gdOKCp > div.sc-gsnTZi.dRsHiZ > span').click();
+        cy.contains('Stake').click();
+        cy.get('[data-test-id="staking-input"]').type('100');
+        cy.get('#page-content > div > div > div.sc-lkCHeq.EIhkv > div.sc-cvnuvz.jxNYaY > div.sc-kdjpcd.dZTdFP > div > div.sc-jdHRdX.fqxDLX > div.sc-gsnTZi.dRsHiZ > span').click();
         cy.confirmMetamaskTransaction();
         cy.get('#page-content > div > div > div.sc-hWlEnr.ehFUWm > div', { timeout: 70000 }).should(($el) => {
             expect(Cypress.dom.isAttached($el), 'is attached').to.eq(false);
