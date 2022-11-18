@@ -18,6 +18,7 @@ describe('Mint Cryptosaurs NFT', () => {
         cy.wait(2000);
         cy.contains("Next").click();
         cy.get(".css-s2o3f7").click();
+        
 
         cy.acceptMetamaskAccess().should("be.true");
         
